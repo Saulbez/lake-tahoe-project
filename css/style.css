@@ -1,7 +1,7 @@
 /* Web Fonts ----------------------- */
 @font-face {
-  font-family: 'Abolotion Regular';
-  src: url(../fonts/abolition-regular-webfont.woff) format('woff');
+  font-family: 'Abolition Regular';
+  src: url('../fonts/abolition-regular-webfont.woff') format('woff');
 }
 
 /* Base Styles --------------------- */
@@ -12,30 +12,23 @@ html {
   font-size: 1.25em; /* 20px on most screens */
 }
 body {
-  /* font-family: 'Work Sans', sans-serif;
-  color: #454959;
-  font-weight: 300;
-  line-height: 1.5; */
   margin: 1rem;
   font: 300 100%/1.5 'Work Sans', sans-serif;
   color: #454959;
 }
-a{
+a {
   color: #cc4e13;
   text-decoration: none;
 }
 h1, h2 {
-  font-family: 'Abolition Regular', Impact, Charcoal, sans-serif;
-  font-weight: normal;
-  line-height: 1.1;
+  font: 400 4rem/1.1 'Abolition Regular', Impact, Charcoal, sans-serif;
 }
 h1 {
-  font-size: 4rem;
-  text-shadow: 1px 3px 3px rgba(0, 10, 30, 0.493);
+  text-shadow: 1px 2px 3px rgba(0,10,30,.5);
 }
 h1::after {
+  content: '\2193';
   display: block;
-  content: '\21E9';
 }
 h2 {
   font-size: 2.5rem;
@@ -45,14 +38,16 @@ h3 {
 }
 img {
   width: 100%; /* responsive images */
+  border-radius: 10px;
 }
 
 
 /* Main Styles --------------------- */
 header {
-  margin: -1rem -1rem 1rem;
   padding: 10vh 1rem;
-  background-color: #f3753b;
+  margin: -1rem -1rem 1rem;
+  background:url(../img/mountains.jpg) center / cover #f3753b;
+  background-blend-mode: multiply;
   color: white;
 }
 header, footer {
@@ -63,13 +58,20 @@ header, footer {
 }
 main {
   hyphens: auto;
+  max-width: 1000px;
+  margin: auto;
+}
+section {
+  padding: 4rem 0;
+  border-bottom: 1px dotted #454959;
 }
 #wildlife {
   padding: 20% 15%;
   border-top: 12px solid #f3753b;
-  background-color: #454959;
+  border-radius: 12px 12px 0 0;
   color: white;
-  box-shadow: inset 0 0 20px 10px rgba(0, 10, 30,.75);
+  box-shadow: inset 0 0 20px 10px rgba(0,10,30,.8);
+  background: url(../img/bear.jpg) center / cover #454959;
 }
 #wildlife a {
   color: #f7a27c;
@@ -80,10 +82,42 @@ main {
   padding: .25rem 1rem;
   border-radius: 20px/10px;
   margin: 1rem auto;
-  box-shadow: 1px 2px 3px rgba(0, 10, 30, .5);
-  background-color: #cc4e13;
+  box-shadow: 1px 2px 3px rgba(0,10,30,.8);
+  /* background-image: radial-gradient(circle at top right, #cc4e13, firebrick, papayawhip) ; */
+  background-image: linear-gradient(135deg, rgba(255,255,255,.7) 0%, rgba(250,100,50,.2) 50%), linear-gradient(to bottom, #b40 0%, #d63 50%, #c51 51%, #e74 100%);
   color: white;
+  text-align: center;
   font-size: 1.25rem;
 }
-/* Media Queries ------------------- */
+.column:first-child {
+  margin-bottom: 4rem;
+}
 
+/* Media Queries ------------------- */
+@media screen and (min-width: 720px) {
+  header {
+    padding: 20vh 1rem;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+  h1::after {
+    margin-top: 1rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+  .intro {
+    padding: 0 15%;
+    font-size: 1.1rem;
+  }
+  .column {
+    display: inline-block;
+    width: 48%;
+    margin-right: -4px; /* Para resolver o problema do espaço branco que não permite que ambas as divs apareçam lado a lado */
+  }
+  .column:first-child {
+    margin-right: calc(4% - 4px);
+    margin-bottom: 0;
+  }
+}
